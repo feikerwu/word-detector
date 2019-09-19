@@ -14,7 +14,8 @@ function detector(info = {}) {
 }
 
 function translate(text) {
-  fetch(`http://localhost:3000?text=${text}`).then(res => {
+  const host = 'http://localhost:3000';
+  fetch(`${host}?text=${text}`).then(res => {
     console.log(res.json());
   });
 }

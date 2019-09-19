@@ -1,14 +1,18 @@
 const express = require('express');
-const { translate } = require('./services');
+const { translate, Word } = require('./services');
 const app = express();
 const port = 3000;
 
 app.get('/', async (req, res) => {
   const { text } = req.query;
-  console.log(text);
   try {
     const translatedValue = await translate(text, { to: 'en' });
     console.log(translatedValue);
+    Word.create({
+      word: text,
+      translatedValue
+    });
+
     res.json({
       code: 0,
       msg: 'translated successfully',

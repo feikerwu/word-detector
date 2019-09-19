@@ -1,19 +1,7 @@
-const axios = require('axios');
-
-const translate = async text => {
-  const { data } = await axios('http://fy.iciba.com/ajax.php', {
-    url: 'get',
-    params: {
-      a: 'fy',
-      f: 'auto',
-      t: 'auto',
-      w: text
-    }
-  });
-
-  return data.content.word_mean || data.content.out;
-};
+const { translate } = require('./translate');
+const { Word } = require('./db');
 
 module.exports = {
-  translate
+  translate,
+  Word
 };
