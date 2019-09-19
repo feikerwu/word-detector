@@ -9,8 +9,14 @@ function detector(info = {}) {
   let { selectionText: word } = info;
   word = normalizeWord(word);
   if (isValidWord(word)) {
-    console.log(word);
+    translate(word);
   }
+}
+
+function translate(text) {
+  fetch(`http://localhost:3000?text=${text}`).then(res => {
+    console.log(res.json());
+  });
 }
 
 chrome.contextMenus.create({
