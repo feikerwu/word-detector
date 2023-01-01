@@ -19,7 +19,7 @@
     "express": "^4.17.1",
     "husky": "^3.0.1",
     "mongoose": "^5.7.1",
-    "parcel": "^1.12.3"
+    "parcel": "^2.8.2"
   },
   "commitlint": {
     "extends": [
